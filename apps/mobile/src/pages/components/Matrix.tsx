@@ -1,14 +1,10 @@
-import React from 'react';
-import {StyleSheet, View, ViewStyle} from 'react-native';
+import {changeActiveCoordinate, selectActiveCoordinate} from '@x-sudoku/store';
+import React, {useCallback} from 'react';
+import {StyleSheet, View} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
+import {ICoordinate} from '../../data-structures';
 import {Colors} from '../../style';
 import {Cell} from './Cell';
-import {useDispatch, useSelector} from 'react-redux';
-import {useCallback} from 'react';
-import {
-  changeActiveCoordinate,
-  selectActiveCoordinate,
-} from '../../store/levelSlice';
-import {ICoordinate} from '../../data-structures';
 
 const emptyMatrix = Array(9).fill(Array(9).fill(0));
 

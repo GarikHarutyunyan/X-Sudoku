@@ -1,20 +1,20 @@
-import {useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {
   getLevels,
+  selectLastAvailableLevel,
   selectLevels,
   selectLevelsStatus,
-} from '../../store/levelSlice';
-import {ILevel, RequestStatus} from '../../data-structures';
+} from '@x-sudoku/store';
+import {useEffect} from 'react';
 import {StyleSheet, Text} from 'react-native';
 import {ActivityIndicator} from 'react-native-paper';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {Container} from '../components/Container';
-import {Screen} from '../components/Screen';
-import {Grid} from '../components/Grid';
-import {selectLastAvailableLevel} from '../../store/userSlice';
-import {TopBar} from '../components/TopBar';
+import {useDispatch, useSelector} from 'react-redux';
+import {ILevel, RequestStatus} from '../../data-structures';
 import {Colors} from '../../style';
+import {Container} from '../components/Container';
+import {Grid} from '../components/Grid';
+import {Screen} from '../components/Screen';
+import {TopBar} from '../components/TopBar';
 
 type RootStackParamList = {
   Level: {id: string};
@@ -29,7 +29,7 @@ interface ILevelsProps {
   navigation: LevelNavigationProp;
 }
 
-const Levels: React.FC<ILevelsProps> = (props) => {
+const Levels = (props: ILevelsProps) => {
   const {navigation} = props;
   const levels: ILevel[] | undefined = useSelector(selectLevels);
   const lastAvailableLevel: number = useSelector(selectLastAvailableLevel);

@@ -1,12 +1,12 @@
-import {Level} from './src/pages/level/Level';
-import {Provider} from 'react-redux';
-import {persistor, store} from './src/store/store';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {persistor, store} from '@x-sudoku/store';
+import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
-import {Levels} from './src/pages/levels/Levels';
 import {HomeScreen} from './src/pages/HomeScreen/HomeScreen';
 import {AboutScreen} from './src/pages/about/AboutScreen';
+import {Level} from './src/pages/level/Level';
+import {Levels} from './src/pages/levels/Levels';
 
 const Stack = createNativeStackNavigator();
 
