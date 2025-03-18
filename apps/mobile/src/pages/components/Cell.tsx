@@ -1,14 +1,14 @@
-import React, {useCallback, memo} from 'react';
-import {StyleSheet, Text, TouchableWithoutFeedback, View} from 'react-native';
-import {Colors} from '../../style';
-import {useSelector} from 'react-redux';
 import {
   checkIsIntersection,
   checkIsWrong,
   checkMutability,
   selectCoordinateValue,
-} from '../../store/levelSlice';
+} from '@x-sudoku/store';
+import React, {memo, useCallback} from 'react';
+import {StyleSheet, Text, TouchableWithoutFeedback, View} from 'react-native';
+import {useSelector} from 'react-redux';
 import {ICoordinate} from '../../data-structures';
+import {Colors} from '../../style';
 
 interface ICellProps {
   x: number;

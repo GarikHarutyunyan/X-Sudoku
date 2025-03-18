@@ -1,23 +1,23 @@
-import React, {useCallback, useEffect} from 'react';
-import {StyleSheet, View} from 'react-native';
-import {Button, Matrix, Refresh} from '../components';
-import {NumberBoard} from '../components/NumberBoard';
-import {useDispatch, useSelector} from 'react-redux';
+import {RouteProp} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {
+  changeLastAvailableLevel,
   checkIsSolved,
   getLevel,
   selectLevel,
   selectLevelStatus,
-} from '../../store/levelSlice';
+} from '@x-sudoku/store';
+import React, {useCallback, useEffect} from 'react';
+import {StyleSheet} from 'react-native';
 import {ActivityIndicator} from 'react-native-paper';
-import {TopBar} from '../components/TopBar';
-import {Win} from '../components/Win';
-import {RouteProp} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {Screen} from '../components/Screen';
-import {changeLastAvailableLevel} from '../../store/userSlice';
+import {useDispatch, useSelector} from 'react-redux';
 import {ILevel, RequestStatus} from '../../data-structures';
 import {Colors} from '../../style';
+import {Button, Matrix, Refresh} from '../components';
+import {NumberBoard} from '../components/NumberBoard';
+import {Screen} from '../components/Screen';
+import {TopBar} from '../components/TopBar';
+import {Win} from '../components/Win';
 
 type RootStackParamList = {
   Level: {id: string};
@@ -30,7 +30,7 @@ type LevelNavigationProp = NativeStackNavigationProp<
 >;
 
 interface ILevelProps {
-  route: LevelRouteProp;
+  route: any; // LevelRouteProp;
   navigation: LevelNavigationProp;
 }
 

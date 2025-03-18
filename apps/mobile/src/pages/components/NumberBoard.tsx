@@ -1,9 +1,9 @@
-import {StyleSheet, View} from 'react-native';
-import {Remove} from './icons';
-import {Button} from './Button';
+import {changeActiveCoordinateValue} from '@x-sudoku/store';
 import {useCallback} from 'react';
+import {StyleSheet, View} from 'react-native';
 import {useDispatch} from 'react-redux';
-import {changeActiveCoordinateValue} from '../../store/levelSlice';
+import {Button} from './Button';
+import {Remove} from './icons';
 
 const emptyArray = Array(10).fill(undefined);
 
