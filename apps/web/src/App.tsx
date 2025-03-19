@@ -1,4 +1,5 @@
 import {RouterProvider, createHashRouter} from 'react-router-dom';
+import './App.css';
 import {Home} from './pages/home/Home';
 import {Level} from './pages/level';
 import {Levels} from './pages/levels';
