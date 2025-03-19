@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "tsc && nodemon --inspect dist/app.js",
+    "start": "concurrently \"tsc --watch\" \"nodemon dist/app.js\"",
     "build": "tsc",
     "dev": "tsc && nodemon --require dotenv/config app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,6 +16,7 @@
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
     "@types/uuid": "^9.0.3",
+    "concurrently": "^9.1.2",
     "dotenv": "^16.3.1",
     "nodemon": "^3.0.1",
     "prettier": "3.0.2",
