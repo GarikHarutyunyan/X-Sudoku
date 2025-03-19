@@ -1,15 +1,17 @@
 import bodyParser from 'body-parser';
-// import cors from 'cors';
+import cors from 'cors';
 import express from 'express';
 import levelsRouter from './api/Levels/levels';
 
 const app = express();
 const port = 5000;
-// const corsOptions = {
-//   origin: 'http://localhost:8081',
-// };
 
-// app.use(cors(corsOptions));
+const whitelist = ['http://localhost:3000', 'http://localhost:8081'];
+const corsOptions = {
+  origin: whitelist,
+};
+
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 app.use('', levelsRouter);
