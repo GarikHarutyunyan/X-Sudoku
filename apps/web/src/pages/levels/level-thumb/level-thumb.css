@@ -1,0 +1,26 @@
+.level-thumb {
+    display: flex;
+    width: 70%;
+    aspect-ratio: 0.8;
+    border: 1px solid;
+    border-radius: 15px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: auto;
+    text-decoration: none;
+}
+
+.level-thumb_disabled {
+    cursor: not-allowed;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.level-thumb__index {
+    font-size: 45px;
+}
+
+.level-thumb__level-text {
+    font-size: 25px;
+}

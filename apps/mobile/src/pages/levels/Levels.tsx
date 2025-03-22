@@ -53,7 +53,7 @@ const Levels = (props: ILevelsProps) => {
         isDisabled={isDisabled}
       >
         <Text style={styles.textNumber}>{level.index}</Text>
-        <Text style={styles.text}>{`Level`}</Text>
+        <Text style={styles.text}>{'Level'}</Text>
       </Container>
     );
   };
