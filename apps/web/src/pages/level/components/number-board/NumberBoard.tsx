@@ -1,9 +1,12 @@
 import {changeActiveCoordinateValue} from '@x-sudoku/store';
 import {memo, useCallback} from 'react';
 import {useDispatch} from 'react-redux';
+import ActionThumb from '../../../../components/action-thumb/ActionThumb';
+import Remove from '../../../../components/icons/Remove';
+import {Grid} from '../../../levels/grid/Grid';
 import './number-board.css';
 
-const emptyArray = Array(9).fill(undefined);
+const emptyArray = Array(10).fill(undefined);
 
 const NumberBoard = memo(() => {
   const dispatch = useDispatch();
@@ -13,20 +16,32 @@ const NumberBoard = memo(() => {
     []
   );
 
+  const renderNumberThumb = (_empty: any, index: number) => {
+    const number: number = index + 1;
+    const outOfScope = number >= 10;
+    let removeIcon;
+
+    if (outOfScope) {
+      removeIcon = <Remove width={40} height={40} />;
+    }
+
+    return (
+      <ActionThumb
+        key={number}
+        onClick={() => changeActiveCellValue(number <= 9 ? number : 0)}
+      >
+        {removeIcon || number}
+      </ActionThumb>
+    );
+  };
+
   return (
-    <div className={'number-board'}>
-      {emptyArray.map((_empty, index) => {
-        return (
-          <div
-            key={index}
-            onClick={() => changeActiveCellValue(index + 1)}
-            className={'number-board__element'}
-          >
-            {index + 1}
-          </div>
-        );
-      })}
-    </div>
+    <Grid
+      items={emptyArray}
+      renderItem={renderNumberThumb}
+      columnNumber={5}
+      className={'number-board'}
+    />
   );
 });
 

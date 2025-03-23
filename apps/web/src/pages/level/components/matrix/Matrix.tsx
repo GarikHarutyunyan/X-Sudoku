@@ -18,16 +18,16 @@ const Matrix = (): JSX.Element => {
 
   return (
     <div className={'matrix'}>
-      {matrix.map((row, y) => {
+      {matrix.map((row, x) => {
         return (
-          <div key={y} className={'matrix__row'}>
-            {row.map((_cell: number, x: number) => {
+          <div key={x} className={'matrix__row'}>
+            {row.map((_cell: number, y: number) => {
               const isCellActive: boolean =
                 !!activeCell && activeCell.x === x && activeCell.y === y;
 
               return (
                 <Cell
-                  key={x}
+                  key={y}
                   x={x}
                   y={y}
                   isActive={isCellActive}

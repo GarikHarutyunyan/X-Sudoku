@@ -1,15 +1,17 @@
 import {getLevels, selectLevels, selectLevelsStatus} from '@x-sudoku/store';
 import {JSX, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {Link} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import {ILevel, RequestStatus} from '../../data-structures';
 import {Colors} from '../../style';
+import {ActionBar} from '../level/components/actions/ActionBar';
 import {Grid} from './grid/Grid';
 import LevelThumb from './level-thumb/LevelThumb';
 import './levels.css';
 import Loader from './loader/Loader';
 
 const Levels = (): JSX.Element => {
+  const navigate = useNavigate();
   const levelsStatus: RequestStatus = useSelector(selectLevelsStatus);
   const isLoading: boolean = levelsStatus === RequestStatus.LOADING;
   const levels: ILevel[] = useSelector(selectLevels);
@@ -26,9 +28,7 @@ const Levels = (): JSX.Element => {
 
   return (
     <div style={{backgroundColor: Colors.APP_PRIMARY}}>
-      <h3>
-        <Link to={'/'}>{'Back'}</Link>
-      </h3>
+      <ActionBar onBack={() => navigate(-1)} />
       {isLoading ? (
         <Loader color={Colors.APP_SECONDARY} />
       ) : (
