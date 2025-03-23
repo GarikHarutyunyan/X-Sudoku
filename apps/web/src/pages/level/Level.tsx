@@ -59,32 +59,37 @@ const Level = () => {
   };
 
   return (
-    <div className={'level'} style={{backgroundColor: Colors.APP_PRIMARY}}>
+    <div
+      className={'level-container'}
+      style={{backgroundColor: Colors.APP_PRIMARY}}
+    >
       <ActionBar onBack={() => navigate(-1)}>
         <ActionThumb onClick={onResetLevel} width={70} height={70}>
           <Refresh width={40} height={40} />
         </ActionThumb>
       </ActionBar>
-      {isSolved ? (
-        <Win />
-      ) : isLoading ? (
-        <Loader color={Colors.APP_SECONDARY} />
-      ) : (
-        <>
-          <Matrix />
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-              height: '100%',
-            }}
-          >
-            <div></div>
-            <NumberBoard />
-          </div>
-        </>
-      )}
+      <div className={'level'}>
+        {isSolved ? (
+          <Win />
+        ) : isLoading ? (
+          <Loader color={Colors.APP_SECONDARY} />
+        ) : (
+          <>
+            <Matrix />
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                height: '100%',
+              }}
+            >
+              <div></div>
+              <NumberBoard />
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 };
